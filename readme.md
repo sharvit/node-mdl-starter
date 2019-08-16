@@ -38,4 +38,4 @@ nodeMdlStarter('some text');
 
 ## License
 
-MIT &copy; [Avi Sharvit](https://sharvit.github.io)
+MIT &copy; [Avi](Avi)
