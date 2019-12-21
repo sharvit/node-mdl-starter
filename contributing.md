@@ -81,7 +81,7 @@ yarn commit
 git push origin my-branch
 ```
 
-Open this project on [GitHub](https://github.com/sharvit/generator-node-mdl), then click “Compare & pull request”.
+Open this project on [GitHub](https://github.com/sharvit/node-mdl-starter), then click “Compare & pull request”.
 
 ## Help needed
 
