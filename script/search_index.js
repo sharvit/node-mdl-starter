@@ -6,6 +6,12 @@ window.esdocSearchIndex = [
     "function"
   ],
   [
+    "node-mdl-starter/src/index.js~namedexport",
+    "function/index.html#static-function-namedExport",
+    "<span>namedExport</span> <span class=\"search-result-import-path\">node-mdl-starter/src/index.js</span>",
+    "function"
+  ],
+  [
     "",
     "test-file/src/index.test.js.html#lineNumber3",
     "output",

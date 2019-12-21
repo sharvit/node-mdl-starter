@@ -30,16 +30,20 @@
   <ul>
     
   <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-index">index</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-namedExport">namedExport</a></span></span></li>
 </ul>
 </div>
 </nav>
 
 <div class="content" data-ice="content"><h1 data-ice="title">src/index.test.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import nodeMdlStarter from &apos;.&apos;;
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import nodeMdlStarter, { namedExport } from &apos;./index&apos;;
 
 test(&apos;output&apos;, () =&gt; {
   expect(nodeMdlStarter(&apos;&#x1F430;&apos;)).toBe(&apos;&#x1F430;&apos;);
   expect(nodeMdlStarter()).toBe(&apos;No args passed!&apos;);
+
+  expect(namedExport(&apos;&#x1F430;&apos;)).toBe(&apos;&#x1F430;&apos;);
+  expect(namedExport()).toBe(&apos;No args passed!&apos;);
 });
 </code></pre>
 
