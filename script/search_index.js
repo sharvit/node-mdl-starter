@@ -30,14 +30,14 @@ window.esdocSearchIndex = [
     "test"
   ],
   [
-    "",
-    "test-file/src/index.test.js.html#lineNumber9",
+    "iseven src/index.js~iseven,iseven",
+    "test-file/src/index.test.js.html#lineNumber10",
     "node-mdl-starter isEven",
     "test"
   ],
   [
-    "",
-    "test-file/src/index.test.js.html#lineNumber21",
+    "isodd src/index.js~isodd,isodd",
+    "test-file/src/index.test.js.html#lineNumber23",
     "node-mdl-starter isOdd",
     "test"
   ],

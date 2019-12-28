@@ -45,6 +45,7 @@ describe(&apos;node-mdl-starter&apos;, () =&gt; {
     expect(nodeMdlStarter()).toBe(&apos;No args passed!&apos;);
   });
 
+  /** @test {isEven} */
   test(&apos;isEven&apos;, () =&gt; {
     for (let i = 0; i &lt; 20; i += 2) {
       expect(isEven(i)).toBe(true);
@@ -57,6 +58,7 @@ describe(&apos;node-mdl-starter&apos;, () =&gt; {
     expect(() =&gt; isEven(&apos;not-a-number&apos;)).toThrow(TypeError);
   });
 
+  /** @test {isOdd} */
   test(&apos;isOdd&apos;, () =&gt; {
     for (let i = 0; i &lt; 20; i += 2) {
       expect(isOdd(i)).toBe(false);

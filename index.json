@@ -704,7 +704,7 @@
     "__docId__": 52,
     "kind": "file",
     "name": "src/index.test.js",
-    "content": "import nodeMdlStarter, { isEven, isOdd } from './index';\n\ndescribe('node-mdl-starter', () => {\n  test('default', () => {\n    expect(nodeMdlStarter('🐰')).toBe('🐰');\n    expect(nodeMdlStarter()).toBe('No args passed!');\n  });\n\n  test('isEven', () => {\n    for (let i = 0; i < 20; i += 2) {\n      expect(isEven(i)).toBe(true);\n    }\n\n    for (let i = 1; i < 20; i += 2) {\n      expect(isEven(i)).toBe(false);\n    }\n\n    expect(() => isEven('not-a-number')).toThrow(TypeError);\n  });\n\n  test('isOdd', () => {\n    for (let i = 0; i < 20; i += 2) {\n      expect(isOdd(i)).toBe(false);\n    }\n\n    for (let i = 1; i < 20; i += 2) {\n      expect(isOdd(i)).toBe(true);\n    }\n\n    expect(() => isOdd('not-a-number')).toThrow(TypeError);\n  });\n});\n",
+    "content": "import nodeMdlStarter, { isEven, isOdd } from './index';\n\ndescribe('node-mdl-starter', () => {\n  test('default', () => {\n    expect(nodeMdlStarter('🐰')).toBe('🐰');\n    expect(nodeMdlStarter()).toBe('No args passed!');\n  });\n\n  /** @test {isEven} */\n  test('isEven', () => {\n    for (let i = 0; i < 20; i += 2) {\n      expect(isEven(i)).toBe(true);\n    }\n\n    for (let i = 1; i < 20; i += 2) {\n      expect(isEven(i)).toBe(false);\n    }\n\n    expect(() => isEven('not-a-number')).toThrow(TypeError);\n  });\n\n  /** @test {isOdd} */\n  test('isOdd', () => {\n    for (let i = 0; i < 20; i += 2) {\n      expect(isOdd(i)).toBe(false);\n    }\n\n    for (let i = 1; i < 20; i += 2) {\n      expect(isOdd(i)).toBe(true);\n    }\n\n    expect(() => isOdd('not-a-number')).toThrow(TypeError);\n  });\n});\n",
     "static": true,
     "longname": "/home/travis/build/sharvit/node-mdl-starter/src/index.test.js",
     "access": "public",
@@ -772,7 +772,7 @@
     "__docId__": 53,
     "kind": "testFile",
     "name": "src/index.test.js",
-    "content": "import nodeMdlStarter, { isEven, isOdd } from './index';\n\ndescribe('node-mdl-starter', () => {\n  test('default', () => {\n    expect(nodeMdlStarter('🐰')).toBe('🐰');\n    expect(nodeMdlStarter()).toBe('No args passed!');\n  });\n\n  test('isEven', () => {\n    for (let i = 0; i < 20; i += 2) {\n      expect(isEven(i)).toBe(true);\n    }\n\n    for (let i = 1; i < 20; i += 2) {\n      expect(isEven(i)).toBe(false);\n    }\n\n    expect(() => isEven('not-a-number')).toThrow(TypeError);\n  });\n\n  test('isOdd', () => {\n    for (let i = 0; i < 20; i += 2) {\n      expect(isOdd(i)).toBe(false);\n    }\n\n    for (let i = 1; i < 20; i += 2) {\n      expect(isOdd(i)).toBe(true);\n    }\n\n    expect(() => isOdd('not-a-number')).toThrow(TypeError);\n  });\n});\n",
+    "content": "import nodeMdlStarter, { isEven, isOdd } from './index';\n\ndescribe('node-mdl-starter', () => {\n  test('default', () => {\n    expect(nodeMdlStarter('🐰')).toBe('🐰');\n    expect(nodeMdlStarter()).toBe('No args passed!');\n  });\n\n  /** @test {isEven} */\n  test('isEven', () => {\n    for (let i = 0; i < 20; i += 2) {\n      expect(isEven(i)).toBe(true);\n    }\n\n    for (let i = 1; i < 20; i += 2) {\n      expect(isEven(i)).toBe(false);\n    }\n\n    expect(() => isEven('not-a-number')).toThrow(TypeError);\n  });\n\n  /** @test {isOdd} */\n  test('isOdd', () => {\n    for (let i = 0; i < 20; i += 2) {\n      expect(isOdd(i)).toBe(false);\n    }\n\n    for (let i = 1; i < 20; i += 2) {\n      expect(isOdd(i)).toBe(true);\n    }\n\n    expect(() => isOdd('not-a-number')).toThrow(TypeError);\n  });\n});\n",
     "static": true,
     "longname": "/home/travis/build/sharvit/node-mdl-starter/src/index.test.js",
     "access": null,
@@ -816,7 +816,10 @@
     "longname": "src/index.test.js~describe0.test2",
     "access": null,
     "description": "isEven",
-    "lineNumber": 9
+    "lineNumber": 10,
+    "testTargets": [
+      "isEven"
+    ]
   },
   {
     "__docId__": 57,
@@ -829,6 +832,9 @@
     "longname": "src/index.test.js~describe0.test3",
     "access": null,
     "description": "isOdd",
-    "lineNumber": 21
+    "lineNumber": 23,
+    "testTargets": [
+      "isOdd"
+    ]
   }
 ]
