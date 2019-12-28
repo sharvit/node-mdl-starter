@@ -1,9 +1,32 @@
-import nodeMdlStarter, { namedExport } from './index';
+import nodeMdlStarter, { isEven, isOdd } from './index';
 
-test('output', () => {
-  expect(nodeMdlStarter('🐰')).toBe('🐰');
-  expect(nodeMdlStarter()).toBe('No args passed!');
+describe('node-mdl-starter', () => {
+  test('default', () => {
+    expect(nodeMdlStarter('🐰')).toBe('🐰');
+    expect(nodeMdlStarter()).toBe('No args passed!');
+  });
 
-  expect(namedExport('🐰')).toBe('🐰');
-  expect(namedExport()).toBe('No args passed!');
+  test('isEven', () => {
+    for (let i = 0; i < 20; i += 2) {
+      expect(isEven(i)).toBe(true);
+    }
+
+    for (let i = 1; i < 20; i += 2) {
+      expect(isEven(i)).toBe(false);
+    }
+
+    expect(() => isEven('not-a-number')).toThrow(TypeError);
+  });
+
+  test('isOdd', () => {
+    for (let i = 0; i < 20; i += 2) {
+      expect(isOdd(i)).toBe(false);
+    }
+
+    for (let i = 1; i < 20; i += 2) {
+      expect(isOdd(i)).toBe(true);
+    }
+
+    expect(() => isOdd('not-a-number')).toThrow(TypeError);
+  });
 });

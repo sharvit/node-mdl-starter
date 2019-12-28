@@ -32,6 +32,37 @@ nodeMdlStarter('some text');
 //=> some text
 ```
 
+## Usage
+
+```js
+import nodeMdlStarter, { isEven, isOdd } from 'node-mdl-starter';
+
+nodeMdlStarter('some text');
+//=> some text
+
+isEven(8);
+//=> true
+isEven(9);
+//=> false
+isOdd(8);
+//=> false
+isOdd(9);
+//=> true
+```
+
+If you are not able to use `es-modules`, you can use `require` instead of `import`
+```js
+const { default: nodeMdlStarter, isEven, isOdd } = require('node-mdl-starter');
+```
+
+To use it directly inside a browser, load it via a script `tag`:
+```html
+<script type="text/javascript" src="./node_modules/node-mdl-starter/dist/index.js"></script>
+<script type="text/javascript">
+  const { default: nodeMdlStarter, isEven, isOdd } = window['node-mdl-starter'];
+</script>
+```
+
 ## Related
 
 // TODO
