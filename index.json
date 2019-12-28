@@ -567,7 +567,7 @@
     "__docId__": 48,
     "kind": "file",
     "name": "src/index.js",
-    "content": "/**\n * Return the passed argument as is.\n * @param  {String} [input='No args passed!'] input argument to return.\n * @return {String} return the recived import.\n */\nexport default (input = 'No args passed!') => input;\n\n/**\n * Return the passed argument as is.\n * @param  {String} [input='No args passed!'] input argument to return.\n * @return {String} return the recived import.\n */\nexport const namedExport = (input = 'No args passed!') => input;\n",
+    "content": "/**\n * Return the passed argument as is.\n * @param  {String} [input='No args passed!'] input argument to return.\n * @return {String} return the recived import.\n */\nexport default (input = 'No args passed!') => input;\n\n/**\n * Check if a numeric value is an even number.\n * @param  {Number}  number a number to check.\n * @return {Boolean}        boolean indication whether the given number is even.\n * @throws {TypeError}      throw error when the argument is not a number.\n */\nexport const isEven = number => {\n  if (isNaN(number)) {\n    throw new TypeError('The first argument must be a number');\n  }\n  return number % 2 === 0;\n};\n\n/**\n * Check if a numeric value is an odd number.\n * @param  {Number}  number a number to check.\n * @return {Boolean}        boolean indication whether the given number is odd.\n * @throws {TypeError}      throw error when the argument is not a number.\n */\nexport const isOdd = number => !isEven(number);\n",
     "static": true,
     "longname": "/home/travis/build/sharvit/node-mdl-starter/src/index.js",
     "access": "public",
@@ -615,46 +615,96 @@
   {
     "__docId__": 50,
     "kind": "function",
-    "name": "namedExport",
+    "name": "isEven",
     "memberof": "src/index.js",
     "generator": false,
     "async": false,
     "static": true,
-    "longname": "src/index.js~namedExport",
+    "longname": "src/index.js~isEven",
     "access": "public",
     "export": true,
     "importPath": "node-mdl-starter/src/index.js",
-    "importStyle": "{namedExport}",
-    "description": "Return the passed argument as is.",
-    "lineNumber": 13,
+    "importStyle": "{isEven}",
+    "description": "Check if a numeric value is an even number.",
+    "lineNumber": 14,
     "params": [
       {
         "nullable": null,
         "types": [
-          "String"
+          "Number"
         ],
         "spread": false,
-        "optional": true,
-        "defaultValue": "'No args passed!'",
-        "defaultRaw": "'No args passed!'",
-        "name": "input",
-        "description": "input argument to return."
+        "optional": false,
+        "name": "number",
+        "description": "a number to check."
       }
     ],
     "return": {
       "nullable": null,
       "types": [
-        "String"
+        "Boolean"
       ],
       "spread": false,
-      "description": "return the recived import."
-    }
+      "description": "boolean indication whether the given number is even."
+    },
+    "throws": [
+      {
+        "types": [
+          "TypeError"
+        ],
+        "description": "throw error when the argument is not a number."
+      }
+    ]
   },
   {
     "__docId__": 51,
+    "kind": "function",
+    "name": "isOdd",
+    "memberof": "src/index.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/index.js~isOdd",
+    "access": "public",
+    "export": true,
+    "importPath": "node-mdl-starter/src/index.js",
+    "importStyle": "{isOdd}",
+    "description": "Check if a numeric value is an odd number.",
+    "lineNumber": 27,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "number",
+        "description": "a number to check."
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Boolean"
+      ],
+      "spread": false,
+      "description": "boolean indication whether the given number is odd."
+    },
+    "throws": [
+      {
+        "types": [
+          "TypeError"
+        ],
+        "description": "throw error when the argument is not a number."
+      }
+    ]
+  },
+  {
+    "__docId__": 52,
     "kind": "file",
     "name": "src/index.test.js",
-    "content": "import nodeMdlStarter, { namedExport } from './index';\n\ntest('output', () => {\n  expect(nodeMdlStarter('🐰')).toBe('🐰');\n  expect(nodeMdlStarter()).toBe('No args passed!');\n\n  expect(namedExport('🐰')).toBe('🐰');\n  expect(namedExport()).toBe('No args passed!');\n});\n",
+    "content": "import nodeMdlStarter, { isEven, isOdd } from './index';\n\ndescribe('node-mdl-starter', () => {\n  test('default', () => {\n    expect(nodeMdlStarter('🐰')).toBe('🐰');\n    expect(nodeMdlStarter()).toBe('No args passed!');\n  });\n\n  test('isEven', () => {\n    for (let i = 0; i < 20; i += 2) {\n      expect(isEven(i)).toBe(true);\n    }\n\n    for (let i = 1; i < 20; i += 2) {\n      expect(isEven(i)).toBe(false);\n    }\n\n    expect(() => isEven('not-a-number')).toThrow(TypeError);\n  });\n\n  test('isOdd', () => {\n    for (let i = 0; i < 20; i += 2) {\n      expect(isOdd(i)).toBe(false);\n    }\n\n    for (let i = 1; i < 20; i += 2) {\n      expect(isOdd(i)).toBe(true);\n    }\n\n    expect(() => isOdd('not-a-number')).toThrow(TypeError);\n  });\n});\n",
     "static": true,
     "longname": "/home/travis/build/sharvit/node-mdl-starter/src/index.test.js",
     "access": "public",
@@ -671,7 +721,7 @@
   },
   {
     "kind": "packageJSON",
-    "content": "{\n  \"name\": \"node-mdl-starter\",\n  \"version\": \"0.0.0-semantic-release\",\n  \"description\": \"Generated by generator-node-mdl\",\n  \"license\": \"MIT\",\n  \"repository\": \"https://github.com/sharvit/node-mdl-starter\",\n  \"author\": {\n    \"name\": \"Avi\",\n    \"email\": \"sharvita@gmail.com\",\n    \"url\": \"Avi\"\n  },\n  \"engines\": {\n    \"node\": \">=8\"\n  },\n  \"scripts\": {\n    \"prebuild\": \"rimraf dist\",\n    \"build\": \"yarn build:webpack && yarn build:docs\",\n    \"build:webpack\": \"webpack --config ./config/webpack.config.js\",\n    \"build:docs\": \"esdoc -c ./config/esdoc.config.js\",\n    \"develop:docs\": \"watch \\\"yarn build:docs\\\" . --ignoreDirectoryPattern='/node_modules|docs|dist|coverage|.git|.nyc*./'\",\n    \"test:watch\": \"jest --config ./config/jest.config.js --watch\",\n    \"test\": \"jest --config ./config/jest.config.js --coverage\",\n    \"coveralls\": \"cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js\",\n    \"lint\": \"eslint ./src\",\n    \"lint:commit\": \"commitlint -e --config ./config/commitlint.config.js\",\n    \"lint:commit-travis\": \"commitlint-travis --config ./config/commitlint.config.js\",\n    \"commit\": \"git-cz\",\n    \"semantic-release\": \"semantic-release\"\n  },\n  \"main\": \"dist/index.js\",\n  \"files\": [\n    \"dist\"\n  ],\n  \"dependencies\": {},\n  \"devDependencies\": {\n    \"@babel/core\": \"^7.5.0\",\n    \"@babel/preset-env\": \"^7.5.0\",\n    \"@commitlint/cli\": \"^8.1.0\",\n    \"@commitlint/config-conventional\": \"^8.1.0\",\n    \"@commitlint/travis-cli\": \"^8.1.0\",\n    \"babel-eslint\": \"^10.0.1\",\n    \"babel-jest\": \"^24.8.0\",\n    \"babel-loader\": \"^8.0.6\",\n    \"babel-plugin-add-module-exports\": \"^1.0.0\",\n    \"commitlint-config-cz\": \"^0.12.0\",\n    \"coveralls\": \"^3.0.2\",\n    \"esdoc\": \"^1.1.0\",\n    \"esdoc-ecmascript-proposal-plugin\": \"^1.0.0\",\n    \"esdoc-standard-plugin\": \"^1.0.0\",\n    \"eslint\": \"^6.1.0\",\n    \"eslint-config-prettier\": \"^6.0.0\",\n    \"eslint-config-standard\": \"^13.0.1\",\n    \"eslint-plugin-import\": \"^2.14.0\",\n    \"eslint-plugin-node\": \"^9.1.0\",\n    \"eslint-plugin-prettier\": \"^3.0.0\",\n    \"eslint-plugin-promise\": \"^4.0.1\",\n    \"eslint-plugin-standard\": \"^4.0.0\",\n    \"jest\": \"^24.8.0\",\n    \"prettier\": \"^1.15.3\",\n    \"rimraf\": \"^3.0.0\",\n    \"webpack\": \"^4.41.4\",\n    \"webpack-cli\": \"^3.3.10\"\n  },\n  \"optionalDependencies\": {\n    \"cz-conventional-changelog\": \"^3.0.2\",\n    \"semantic-release\": \"^15.13.1\"\n  },\n  \"config\": {\n    \"commitizen\": {\n      \"path\": \"./node_modules/cz-conventional-changelog\"\n    }\n  },\n  \"keywords\": []\n}\n",
+    "content": "{\n  \"name\": \"node-mdl-starter\",\n  \"version\": \"0.0.0-semantic-release\",\n  \"description\": \"Generated by generator-node-mdl\",\n  \"license\": \"MIT\",\n  \"repository\": \"https://github.com/sharvit/node-mdl-starter\",\n  \"author\": {\n    \"name\": \"Avi\",\n    \"email\": \"sharvita@gmail.com\",\n    \"url\": \"Avi\"\n  },\n  \"engines\": {\n    \"node\": \">=8\"\n  },\n  \"scripts\": {\n    \"prebuild\": \"rimraf dist\",\n    \"build\": \"yarn webpack:build && yarn docs:build\",\n    \"webpack:build\": \"webpack --mode production --config ./config/webpack.config.js\",\n    \"webpack:develop\": \"webpack --mode development --watch --watch-poll --config ./config/webpack.config.js\",\n    \"docs:build\": \"esdoc -c ./config/esdoc.config.js\",\n    \"docs:develop\": \"watch \\\"yarn docs:build\\\" . --ignoreDirectoryPattern='/node_modules|docs|dist|coverage|.git|.nyc*./'\",\n    \"test:watch\": \"jest --config ./config/jest.config.js --watch\",\n    \"test\": \"jest --config ./config/jest.config.js --coverage\",\n    \"coveralls\": \"cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js\",\n    \"lint\": \"eslint ./src\",\n    \"lint:commit\": \"commitlint -e --config ./config/commitlint.config.js\",\n    \"lint:commit-travis\": \"commitlint-travis --config ./config/commitlint.config.js\",\n    \"commit\": \"git-cz\",\n    \"semantic-release\": \"semantic-release\"\n  },\n  \"main\": \"dist/index.js\",\n  \"files\": [\n    \"dist\"\n  ],\n  \"dependencies\": {},\n  \"devDependencies\": {\n    \"@babel/core\": \"^7.5.0\",\n    \"@babel/preset-env\": \"^7.5.0\",\n    \"@commitlint/cli\": \"^8.1.0\",\n    \"@commitlint/config-conventional\": \"^8.1.0\",\n    \"@commitlint/travis-cli\": \"^8.1.0\",\n    \"babel-eslint\": \"^10.0.1\",\n    \"babel-jest\": \"^24.8.0\",\n    \"babel-loader\": \"^8.0.6\",\n    \"babel-plugin-add-module-exports\": \"^1.0.0\",\n    \"commitlint-config-cz\": \"^0.12.0\",\n    \"coveralls\": \"^3.0.2\",\n    \"esdoc\": \"^1.1.0\",\n    \"esdoc-ecmascript-proposal-plugin\": \"^1.0.0\",\n    \"esdoc-standard-plugin\": \"^1.0.0\",\n    \"eslint\": \"^6.1.0\",\n    \"eslint-config-prettier\": \"^6.0.0\",\n    \"eslint-config-standard\": \"^13.0.1\",\n    \"eslint-plugin-import\": \"^2.14.0\",\n    \"eslint-plugin-node\": \"^9.1.0\",\n    \"eslint-plugin-prettier\": \"^3.0.0\",\n    \"eslint-plugin-promise\": \"^4.0.1\",\n    \"eslint-plugin-standard\": \"^4.0.0\",\n    \"jest\": \"^24.8.0\",\n    \"prettier\": \"^1.15.3\",\n    \"rimraf\": \"^3.0.0\",\n    \"webpack\": \"^4.41.4\",\n    \"webpack-cli\": \"^3.3.10\"\n  },\n  \"optionalDependencies\": {\n    \"cz-conventional-changelog\": \"^3.0.2\",\n    \"semantic-release\": \"^15.13.1\"\n  },\n  \"config\": {\n    \"commitizen\": {\n      \"path\": \"./node_modules/cz-conventional-changelog\"\n    }\n  },\n  \"keywords\": []\n}\n",
     "longname": "/home/travis/build/sharvit/node-mdl-starter/package.json",
     "name": "package.json",
     "static": true,
@@ -680,7 +730,7 @@
   {
     "kind": "manualIndex",
     "globalIndex": true,
-    "content": "# node-mdl-starter\n\n> Generated by generator-node-mdl\n\n[![Package Version](https://img.shields.io/npm/v/node-mdl-starter.svg?style=flat-square)](https://www.npmjs.com/package/node-mdl-starter)\n[![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)\n[![Downloads Status](https://img.shields.io/npm/dm/node-mdl-starter.svg?style=flat-square)](https://npm-stat.com/charts.html?package=node-mdl-starter&from=2016-04-01)\n[![Build Status: Linux](https://img.shields.io/travis/sharvit/node-mdl-starter/master.svg?style=flat-square)](https://travis-ci.org/sharvit/node-mdl-starter)\n[![Coverage Status](https://coveralls.io/repos/github/sharvit/node-mdl-starter/badge.svg?branch=master)](https://coveralls.io/github/sharvit/node-mdl-starter?branch=master)\n[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)\n[![dependencies Status](https://david-dm.org/sharvit/node-mdl-starter/status.svg)](https://david-dm.org/sharvit/node-mdl-starter)\n[![devDependencies Status](https://david-dm.org/sharvit/node-mdl-starter/dev-status.svg)](https://david-dm.org/sharvit/node-mdl-starter?type=dev)\n[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)\n[![MIT License](https://img.shields.io/npm/l/stack-overflow-copy-paste.svg?style=flat-square)](http://opensource.org/licenses/MIT)\n\n## Why\n\n// TODO\n\n## Installation\n\n```sh\nnpm install --save node-mdl-starter\n```\n\n## Usage\n\n```js\nconst nodeMdlStarter = require('node-mdl-starter');\n\nnodeMdlStarter('some text');\n//=> some text\n```\n\n## Related\n\n// TODO\n\n## License\n\nMIT &copy; [Avi](Avi)\n",
+    "content": "# node-mdl-starter\n\n> Generated by generator-node-mdl\n\n[![Package Version](https://img.shields.io/npm/v/node-mdl-starter.svg?style=flat-square)](https://www.npmjs.com/package/node-mdl-starter)\n[![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)\n[![Downloads Status](https://img.shields.io/npm/dm/node-mdl-starter.svg?style=flat-square)](https://npm-stat.com/charts.html?package=node-mdl-starter&from=2016-04-01)\n[![Build Status: Linux](https://img.shields.io/travis/sharvit/node-mdl-starter/master.svg?style=flat-square)](https://travis-ci.org/sharvit/node-mdl-starter)\n[![Coverage Status](https://coveralls.io/repos/github/sharvit/node-mdl-starter/badge.svg?branch=master)](https://coveralls.io/github/sharvit/node-mdl-starter?branch=master)\n[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)\n[![dependencies Status](https://david-dm.org/sharvit/node-mdl-starter/status.svg)](https://david-dm.org/sharvit/node-mdl-starter)\n[![devDependencies Status](https://david-dm.org/sharvit/node-mdl-starter/dev-status.svg)](https://david-dm.org/sharvit/node-mdl-starter?type=dev)\n[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)\n[![MIT License](https://img.shields.io/npm/l/stack-overflow-copy-paste.svg?style=flat-square)](http://opensource.org/licenses/MIT)\n\n## Why\n\n// TODO\n\n## Installation\n\n```sh\nnpm install --save node-mdl-starter\n```\n\n## Usage\n\n```js\nconst nodeMdlStarter = require('node-mdl-starter');\n\nnodeMdlStarter('some text');\n//=> some text\n```\n\n## Usage\n\n```js\nimport nodeMdlStarter, { isEven, isOdd } from 'node-mdl-starter';\n\nnodeMdlStarter('some text');\n//=> some text\n\nisEven(8);\n//=> true\nisEven(9);\n//=> false\nisOdd(8);\n//=> false\nisOdd(9);\n//=> true\n```\n\nIf you are not able to use `es-modules`, you can use `require` instead of `import`\n```js\nconst { default: nodeMdlStarter, isEven, isOdd } = require('node-mdl-starter');\n```\n\nTo use it directly inside a browser, load it via a script `tag`:\n```html\n<script type=\"text/javascript\" src=\"./node_modules/node-mdl-starter/dist/index.js\"></script>\n<script type=\"text/javascript\">\n  const { default: nodeMdlStarter, isEven, isOdd } = window['node-mdl-starter'];\n</script>\n```\n\n## Related\n\n// TODO\n\n## License\n\nMIT &copy; [Avi](Avi)\n",
     "longname": "/home/travis/build/sharvit/node-mdl-starter/readme.md",
     "name": "./readme.md",
     "static": true,
@@ -698,7 +748,7 @@
     "kind": "manual",
     "longname": "/home/travis/build/sharvit/node-mdl-starter/contributing.md",
     "name": "./contributing.md",
-    "content": "# Contributing\n\nContributions are always welcome, no matter how large or small.\n\n**Working on your first Pull Request?** You can learn how from this _free_ series [How to Contribute to an Open Source Project on GitHub](https://egghead.io/series/how-to-contribute-to-an-open-source-project-on-github)\n\n## Code of Conduct\n\nBy participating, you are expected to uphold this [Contributor Covenant Code of Conduct](./other/code_of_conduct.md). Please report unacceptable behavior to [sharvita@gmail.com](mailto:sharvita@gmail.com).\n\n## Project setup\n\nFirst, [fork](https://guides.github.com/activities/forking) then clone the repo:\n\n```sh\ngit clone https://github.com/your-username/node-mdl-starter\ncd node-mdl-starter\ngit remote add upstream https://github.com/sharvit/node-mdl-starter\n```\n\nInstall dependencies:\n\n```sh\nyarn\n```\n\nRun test suits to validate the project is working:\n\n```sh\nyarn test\n# run test in watch mode\nyarn test:watch\n```\n\nBuild the project:\n\n```sh\nyarn build\n# only build the dist folder from source\nyarn build:babel\n# only build the docs using esdocs\nyarn build:docs\n# build docs in watch mode\nyarn develop:docs\n```\n\nRun linter to validate the project code:\n\n```sh\nyarn lint\n# to fix linting errors\nyarn lint --fix\n```\n\n\nRun linter to validate your commit message:\n\n```sh\nyarn lint:commit\n```\n\n\n## Committing and Pushing changes\n\nCreate a branch and start hacking:\n\n```sh\ngit checkout -b my-branch\n```\n\nCommit and push your changes:\n\n`generator-node-mdl` uses [commitizen](https://github.com/commitizen/cz-cli) to create commit messages so [semantic-release](https://github.com/semantic-release/semantic-release) can automatically create releases.\n\n```sh\ngit add .\n\nyarn commit\n# answer the questions\n\ngit push origin my-branch\n```\n\nOpen this project on [GitHub](https://github.com/sharvit/node-mdl-starter), then click “Compare & pull request”.\n\n## Help needed\n\nPlease checkout the [`roadmap.md`](./other/roadmap.md) and the open issues.\n\nAlso, please watch the repo and respond to questions/bug reports/feature requests, Thanks!\n",
+    "content": "# Contributing\n\nContributions are always welcome, no matter how large or small.\n\n**Working on your first Pull Request?** You can learn how from this _free_ series [How to Contribute to an Open Source Project on GitHub](https://egghead.io/series/how-to-contribute-to-an-open-source-project-on-github)\n\n## Code of Conduct\n\nBy participating, you are expected to uphold this [Contributor Covenant Code of Conduct](./other/code_of_conduct.md). Please report unacceptable behavior to [sharvita@gmail.com](mailto:sharvita@gmail.com).\n\n## Project setup\n\nFirst, [fork](https://guides.github.com/activities/forking) then clone the repo:\n\n```sh\ngit clone https://github.com/your-username/node-mdl-starter\ncd node-mdl-starter\ngit remote add upstream https://github.com/sharvit/node-mdl-starter\n```\n\nInstall dependencies:\n\n```sh\nyarn\n```\n\nRun test suits to validate the project is working:\n\n```sh\nyarn test\n# run test in watch mode\nyarn test:watch\n```\n\nBuild the project:\n\n```sh\nyarn build\n# only build the dist folder from source\nyarn webpack:build\n# build webpack with a development mode and watch files\nyarn webpack:develop\n# only build the docs using esdocs\nyarn docs:build\n# build docs in watch mode\nyarn docs:develop\n```\n\nRun linter to validate the project code:\n\n```sh\nyarn lint\n# to fix linting errors\nyarn lint --fix\n```\n\n\nRun linter to validate your commit message:\n\n```sh\nyarn lint:commit\n```\n\n\n## Committing and Pushing changes\n\nCreate a branch and start hacking:\n\n```sh\ngit checkout -b my-branch\n```\n\nCommit and push your changes:\n\n`generator-node-mdl` uses [commitizen](https://github.com/commitizen/cz-cli) to create commit messages so [semantic-release](https://github.com/semantic-release/semantic-release) can automatically create releases.\n\n```sh\ngit add .\n\nyarn commit\n# answer the questions\n\ngit push origin my-branch\n```\n\nOpen this project on [GitHub](https://github.com/sharvit/node-mdl-starter), then click “Compare & pull request”.\n\n## Help needed\n\nPlease checkout the [`roadmap.md`](./other/roadmap.md) and the open issues.\n\nAlso, please watch the repo and respond to questions/bug reports/feature requests, Thanks!\n",
     "static": true,
     "access": "public"
   },
@@ -719,10 +769,10 @@
     "access": "public"
   },
   {
-    "__docId__": 52,
+    "__docId__": 53,
     "kind": "testFile",
     "name": "src/index.test.js",
-    "content": "import nodeMdlStarter, { namedExport } from './index';\n\ntest('output', () => {\n  expect(nodeMdlStarter('🐰')).toBe('🐰');\n  expect(nodeMdlStarter()).toBe('No args passed!');\n\n  expect(namedExport('🐰')).toBe('🐰');\n  expect(namedExport()).toBe('No args passed!');\n});\n",
+    "content": "import nodeMdlStarter, { isEven, isOdd } from './index';\n\ndescribe('node-mdl-starter', () => {\n  test('default', () => {\n    expect(nodeMdlStarter('🐰')).toBe('🐰');\n    expect(nodeMdlStarter()).toBe('No args passed!');\n  });\n\n  test('isEven', () => {\n    for (let i = 0; i < 20; i += 2) {\n      expect(isEven(i)).toBe(true);\n    }\n\n    for (let i = 1; i < 20; i += 2) {\n      expect(isEven(i)).toBe(false);\n    }\n\n    expect(() => isEven('not-a-number')).toThrow(TypeError);\n  });\n\n  test('isOdd', () => {\n    for (let i = 0; i < 20; i += 2) {\n      expect(isOdd(i)).toBe(false);\n    }\n\n    for (let i = 1; i < 20; i += 2) {\n      expect(isOdd(i)).toBe(true);\n    }\n\n    expect(() => isOdd('not-a-number')).toThrow(TypeError);\n  });\n});\n",
     "static": true,
     "longname": "/home/travis/build/sharvit/node-mdl-starter/src/index.test.js",
     "access": null,
@@ -730,16 +780,55 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 53,
+    "__docId__": 54,
     "kind": "test",
-    "name": "test0",
+    "name": "describe0",
     "testId": 0,
     "memberof": "src/index.test.js",
     "testDepth": 0,
     "static": true,
-    "longname": "src/index.test.js~test0",
+    "longname": "src/index.test.js~describe0",
     "access": null,
-    "description": "output",
+    "description": "node-mdl-starter",
     "lineNumber": 3
+  },
+  {
+    "__docId__": 55,
+    "kind": "test",
+    "name": "test1",
+    "testId": 1,
+    "memberof": "src/index.test.js~describe0",
+    "testDepth": 1,
+    "static": true,
+    "longname": "src/index.test.js~describe0.test1",
+    "access": null,
+    "description": "default",
+    "lineNumber": 4
+  },
+  {
+    "__docId__": 56,
+    "kind": "test",
+    "name": "test2",
+    "testId": 2,
+    "memberof": "src/index.test.js~describe0",
+    "testDepth": 1,
+    "static": true,
+    "longname": "src/index.test.js~describe0.test2",
+    "access": null,
+    "description": "isEven",
+    "lineNumber": 9
+  },
+  {
+    "__docId__": 57,
+    "kind": "test",
+    "name": "test3",
+    "testId": 3,
+    "memberof": "src/index.test.js~describe0",
+    "testDepth": 1,
+    "static": true,
+    "longname": "src/index.test.js~describe0.test3",
+    "access": null,
+    "description": "isOdd",
+    "lineNumber": 21
   }
 ]

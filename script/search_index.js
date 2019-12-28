@@ -6,15 +6,39 @@ window.esdocSearchIndex = [
     "function"
   ],
   [
-    "node-mdl-starter/src/index.js~namedexport",
-    "function/index.html#static-function-namedExport",
-    "<span>namedExport</span> <span class=\"search-result-import-path\">node-mdl-starter/src/index.js</span>",
+    "node-mdl-starter/src/index.js~iseven",
+    "function/index.html#static-function-isEven",
+    "<span>isEven</span> <span class=\"search-result-import-path\">node-mdl-starter/src/index.js</span>",
+    "function"
+  ],
+  [
+    "node-mdl-starter/src/index.js~isodd",
+    "function/index.html#static-function-isOdd",
+    "<span>isOdd</span> <span class=\"search-result-import-path\">node-mdl-starter/src/index.js</span>",
     "function"
   ],
   [
     "",
     "test-file/src/index.test.js.html#lineNumber3",
-    "output",
+    "node-mdl-starter",
+    "test"
+  ],
+  [
+    "",
+    "test-file/src/index.test.js.html#lineNumber4",
+    "node-mdl-starter default",
+    "test"
+  ],
+  [
+    "",
+    "test-file/src/index.test.js.html#lineNumber9",
+    "node-mdl-starter isEven",
+    "test"
+  ],
+  [
+    "",
+    "test-file/src/index.test.js.html#lineNumber21",
+    "node-mdl-starter isOdd",
     "test"
   ],
   [

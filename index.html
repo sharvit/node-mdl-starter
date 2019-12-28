@@ -90,6 +90,29 @@
 nodeMdlStarter(&apos;some text&apos;);
 //=&gt; some text</code>
 </code></pre>
+<h2 id="usage">Usage</h2><pre><code class="lang-js"><code class="source-code prettyprint">import nodeMdlStarter, { isEven, isOdd } from &apos;node-mdl-starter&apos;;
+
+nodeMdlStarter(&apos;some text&apos;);
+//=&gt; some text
+
+isEven(8);
+//=&gt; true
+isEven(9);
+//=&gt; false
+isOdd(8);
+//=&gt; false
+isOdd(9);
+//=&gt; true</code>
+</code></pre>
+<p>If you are not able to use <code>es-modules</code>, you can use <code>require</code> instead of <code>import</code></p>
+<pre><code class="lang-js"><code class="source-code prettyprint">const { default: nodeMdlStarter, isEven, isOdd } = require(&apos;node-mdl-starter&apos;);</code>
+</code></pre>
+<p>To use it directly inside a browser, load it via a script <code>tag</code>:</p>
+<pre><code class="lang-html"><code class="source-code prettyprint">&lt;script type=&quot;text/javascript&quot; src=&quot;./node_modules/node-mdl-starter/dist/index.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+  const { default: nodeMdlStarter, isEven, isOdd } = window[&apos;node-mdl-starter&apos;];
+&lt;/script&gt;</code>
+</code></pre>
 <h2 id="related">Related</h2><p>// TODO</p>
 <h2 id="license">License</h2><p>MIT &#xA9; <a href="Avi">Avi</a></p>
 </div>
@@ -115,11 +138,13 @@ git remote add upstream https://github.com/sharvit/node-mdl-starter</code>
 yarn test:watch</code>
 </code></pre><p>Build the project:</p><pre><code class="lang-sh"><code class="source-code prettyprint">yarn build
 # only build the dist folder from source
-yarn build:babel
+yarn webpack:build
+# build webpack with a development mode and watch files
+yarn webpack:develop
 # only build the docs using esdocs
-yarn build:docs
+yarn docs:build
 # build docs in watch mode
-yarn develop:docs</code>
+yarn docs:develop</code>
 </code></pre><p>Run linter to validate the project code:</p><pre><code class="lang-sh"><code class="source-code prettyprint">yarn lint
 # to fix linting errors
 yarn lint --fix</code>

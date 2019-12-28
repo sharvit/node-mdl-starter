@@ -87,11 +87,13 @@ yarn test:watch</code>
 <p>Build the project:</p>
 <pre><code class="lang-sh"><code class="source-code prettyprint">yarn build
 # only build the dist folder from source
-yarn build:babel
+yarn webpack:build
+# build webpack with a development mode and watch files
+yarn webpack:develop
 # only build the docs using esdocs
-yarn build:docs
+yarn docs:build
 # build docs in watch mode
-yarn develop:docs</code>
+yarn docs:develop</code>
 </code></pre>
 <p>Run linter to validate the project code:</p>
 <pre><code class="lang-sh"><code class="source-code prettyprint">yarn lint
