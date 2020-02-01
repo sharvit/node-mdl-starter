@@ -10,7 +10,7 @@
     "url": "Avi"
   },
   "engines": {
-    "node": ">=8"
+    "node": ">=10"
   },
   "scripts": {
     "prebuild": "rimraf dist",
@@ -44,6 +44,7 @@
     "babel-loader": "^8.0.6",
     "babel-plugin-add-module-exports": "^1.0.0",
     "commitlint-config-cz": "^0.12.0",
+    "cz-conventional-changelog": "^3.0.2",
     "coveralls": "^3.0.2",
     "esdoc": "^1.1.0",
     "esdoc-ecmascript-proposal-plugin": "^1.0.0",
@@ -59,12 +60,9 @@
     "jest": "^24.8.0",
     "prettier": "^1.15.3",
     "rimraf": "^3.0.0",
+    "semantic-release": "^17.0.2",
     "webpack": "^4.41.4",
     "webpack-cli": "^3.3.10"
-  },
-  "optionalDependencies": {
-    "cz-conventional-changelog": "^3.0.2",
-    "semantic-release": "^15.13.1"
   },
   "config": {
     "commitizen": {
