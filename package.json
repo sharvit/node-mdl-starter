@@ -60,7 +60,7 @@
     "jest": "^24.8.0",
     "prettier": "^1.15.3",
     "rimraf": "^3.0.0",
-    "semantic-release": "^17.0.2",
+    "semantic-release": "^19.0.3",
     "webpack": "^4.41.4",
     "webpack-cli": "^3.3.10"
   },
